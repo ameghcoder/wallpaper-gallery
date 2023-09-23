@@ -2,7 +2,7 @@
 
 include_once($_SERVER["SERVER_NAME"] . "/NDA.php");
 
-$_query = "SELECT id, URL FROM 'wallpaperaccess";
+$_query = "SELECT id, URL FROM 'wallpaperaccess'";
 $_res = mysqli_query($connection, $_query);
 
 if ($_res) {
