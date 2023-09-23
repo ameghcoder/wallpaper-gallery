@@ -11,11 +11,23 @@ if ($_res) {
 
     for ($i = 0; $i < $_numRow; $i++) {
         $_imgURL = $_data[$i][1];
+        $_imgID = $_data[$i][0];
         $_imgInfo = getimagesize("../uploads/" . $_imgURL);
-        print_r($_imgInfo);
+        $_dim = $_imgInfo[0] . 'x' . $_imgInfo[1];
+        $_query_01 = "UPDATE wallpaperaccess SET dimension='$_dim' WHERE id=$_imgID";
+        $_res_01 = mysqli_query($connection, $_query_01);
+
+        if ($_res_01) {
+            continue;
+        } else {
+            echo "Faild on id number " . $_imgID;
+            break;
+        }
     }
 } else {
     echo "<h2>Failed</h2>";
 }
 
 ?>
+
+<!-- x -->
