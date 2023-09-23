@@ -1,0 +1,33 @@
+<footer style="margin-bottom:50px;">
+
+    <ul class="list-btn">
+        <li><a href="/termsandconditions">Terms of Use</a></li>
+        <li><a href="/privacypolicy">Privacy</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+    <strong style="display: block; text-align: center;">
+        Copyright <span id="current-year"></span> : All Rigts Reserved
+    </strong>
+</footer>
+
+<div class="floating-message">
+    <i class="message-type"></i>
+    <span class="message"></span>
+</div>
+<script>
+    let date = new Date();
+    document.getElementById('current-year').innerHTML = date.getFullYear();
+    function $(e){return document.querySelector(e);}
+</script>
+<script src="/ico/script/all_min_jsv4.js"></script>
+<!--<script async type="text/javascript" src="/ico/script/production_v07_class.js"></script>-->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPEEJ3FJ82"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LPEEJ3FJ82');
+</script>

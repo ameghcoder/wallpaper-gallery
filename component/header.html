@@ -1,0 +1,80 @@
+
+<header>
+<div class="hamburger">
+<form action="/search" method="get" enctype="text/plain">
+<input title="Enter your wallpaper name" type="search" name="wallpaper" id="wall_search_per" placeholder="Search your wallpaper">
+<button type="submit" role="button" title="Search Wallpaper">
+<i class="image-search-icon nav-logo-css" title="Image Search Icon"></i> 
+</button>
+</form>
+<span class="hamburger-icon" onclick="document.querySelector('.page-section-left').classList.toggle('left-0px');document.querySelector('.hamburger').classList.toggle('back-fill');document.querySelector('.side-menu-container').classList.remove('left-70px');document.querySelector('.hamburger').classList.toggle('hamburger-responsive-width')">
+<span class="hi-f"></span>
+<span class="hi-m"></span>
+<span class="hi-l"></span>
+</span>
+</div>
+<div class="page-left-side-box">
+<div class="plsb-inside">
+<nav>
+<a href="/" title="wallpaper-access.com" style="margin-right: 10px !important; background: none !important; opacity: 1 !important;">
+<i class="web-logo" title="website logo"></i>
+</a>
+<div class="side-menu">
+<button title="category" class="side-menu-btn clear-btn-css" onclick="document.querySelector('.side-menu-container').classList.toggle('left-70px')">
+<i class="nav-logo-css category-icon" title="category icon"></i>
+</button>
+<div class="side-menu-container">
+<div class="side-menu-container-inside">
+<strong>Category</strong>
+<div class="smci-grid-box">
+<a itemprop="item" href="/category/ai">🤖 AI Created</a>
+<a itemprop="item" href="/category/3d">↔️ 3D</a>
+<a itemprop="item" href="/category/4k">↔️ 4K</a>
+<a itemprop="item" href="/category/abstruct">🌀 Abstruct</a>
+<a itemprop="item" href="/category/actor">👥 Actor</a>
+<a itemprop="item" href="/category/actress">👥 Actress</a>
+<a itemprop="item" href="/category/android">📱 Android</a>
+<a itemprop="item" href="/category/art">🎨 Art</a>
+<a itemprop="item" href="/category/animal">🐶 Animal</a>
+<a itemprop="item" href="/category/anime">💥 Anime</a>
+<a itemprop="item" href="/category/avengers">🦸 Avengers</a>
+<a itemprop="item" href="/category/baby">👶 Baby</a>
+<a itemprop="item" href="/category/building">🏢 Building</a>
+<a itemprop="item" href="/category/bike">🛵 Bike</a>
+<a itemprop="item" href="/category/bts">💜 BTS Army</a>
+<a itemprop="item" href="/category/cars">🚗 Cars</a>
+<a itemprop="item" href="/category/cartoon">🐻 Cartoon</a>
+<a itemprop="item" href="/category/christmas">🎄 Christmas</a>
+<a itemprop="item" href="/category/city">🌆 City</a>
+<a itemprop="item" href="/category/computer">🖥️️ Computer</a>
+<a itemprop="item" href="/category/freefire">🎮 FreeFire</a>
+<a itemprop="item" href="/category/gods">🔱 Gods</a>
+<a itemprop="item" href="/category/galaxy">🌌 Galaxy</a>
+<a itemprop="item" href="/category/gym">🏋️ Gym</a>
+<a itemprop="item" href="/category/gun">🔫 Gun</a>
+<a itemprop="item" href="/category/gaming">🎮 Gaming</a>
+<a itemprop="item" href="/category/house">🏠 House</a>
+<a itemprop="item" href="/category/mountain">⛰️ Mountain</a>
+<a itemprop="item" href="/category/nature">🌳 Nature</a>
+<a itemprop="item" href="/search?wallpaper=year">New Year</a>
+<a itemprop="item" href="/category/planet">🌹 Planet</a>
+<a itemprop="item" href="/search?wallpaper=texture">Texture</a>
+<a itemprop="item" href="/search?wallpaper=villain">🦹 Villain</a>
+<a itemprop="item" href="/category/webseries">🎥 Web Series</a>
+<a itemprop="item" href="/tools">Image Tools</a>
+</div>
+</div>
+</div>
+</div>
+<a title="Contact" href="/contact"><i class="nav-logo-css contact-icon" title="contact icon"></i></a>
+<a title="About" href="/about"><i class="nav-logo-css about-icon" title="about icon"></i></a>
+<a title="Help" href="/personaluseonly"><i class="nav-logo-css help-icon" title="help icon"></i></a>
+<button class="toggle-btn" style="border: none" title="Change Theme Color" type="button"></button>
+<strong style="writing-mode: vertical-rl;transform: rotate(180deg); cursor: pointer;" class="toggle-btn-text">Dark</strong>
+</nav>
+</div>
+</div>
+</header>
+<script>
+let toggleBtn=document.querySelector("button.toggle-btn"),navLogoCss=document.querySelectorAll(".nav-logo-css"),toggleBtnText=document.querySelector(".toggle-btn-text"),theme_=!0;function toggleMode(){document.querySelector("body").classList.toggle("light"),toggleBtn.classList.toggle("toggle-btn-light");for(let t=0;t<navLogoCss.length;t++)navLogoCss[t].classList.toggle("nav-logo-css-light");theme_=theme_?(localStorage.setItem("theme","light"),!(document.querySelector(".toggle-btn-text").innerHTML="Light")):(localStorage.setItem("theme","dark"),document.querySelector(".toggle-btn-text").innerHTML="Dark",!0)}function checkLS(){if("light"==localStorage.getItem("theme")){document.querySelector("body").classList.add("light"),toggleBtn.classList.add("toggle-btn-light");for(let t=0;t<navLogoCss.length;t++)navLogoCss[t].classList.add("nav-logo-css-light");document.querySelector(".toggle-btn-text").innerHTML="Light",theme_=!1}else{document.querySelector("body").classList.remove("light"),toggleBtn.classList.remove("toggle-btn-light");for(let t=0;t<navLogoCss.length;t++)navLogoCss[t].classList.remove("nav-logo-css-light");document.querySelector(".toggle-btn-text").innerHTML="Dark"}}checkLS(),toggleBtn.addEventListener("click",toggleMode),toggleBtnText.addEventListener("click",toggleMode);
+</script>
