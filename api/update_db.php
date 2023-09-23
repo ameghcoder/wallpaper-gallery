@@ -11,7 +11,7 @@ if ($_res) {
 
     for ($i = 0; $i < $_numRow; $i++) {
         $_imgURL = $_data[$i][1];
-        $_imgInfo = getimagesize($_SERVER["SERVER_NAME"] . "/uploads/" . $_imgURL);
+        $_imgInfo = getimagesize("../uploads/" . $_imgURL);
         print_r($_imgInfo);
     }
 } else {
