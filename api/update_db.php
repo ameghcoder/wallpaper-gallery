@@ -14,17 +14,23 @@ if ($_res) {
         $_imgID = $_data[$i][0];
         // $_imgInfo = getimagesize("../uploads/" . $_imgURL);
         $_imgSize = filesize("../uploads/" . $_imgURL);
-        echo "<h2>size: " . $_imgSize . "</h2><br>";
-        // $_dim = $_imgInfo[0] . 'x' . $_imgInfo[1];
-        // $_query_01 = "UPDATE wallpaperaccess SET dimension='$_dim' WHERE id=$_imgID";
-        // $_res_01 = mysqli_query($connection, $_query_01);
 
-        // if ($_res_01) {
-        //     continue;
-        // } else {
-        //     echo "Faild on id number " . $_imgID;
-        //     break;
-        // }
+        if ($_imgSize < 1000000) {
+            $_imgSize = round($_imgSize * 0.001, 2) . "KB";
+        } else if ($_imgSize >= 1000000) {
+            $_imgSize = round($_imgSize * 0.000001, 2) . "MB";
+        }
+
+        // $_dim = $_imgInfo[0] . 'x' . $_imgInfo[1];
+        $_query_01 = "UPDATE wallpaperaccess SET size='$_imgSize' WHERE id=$_imgID";
+        $_res_01 = mysqli_query($connection, $_query_01);
+
+        if ($_res_01) {
+            continue;
+        } else {
+            echo "Faild on id number " . $_imgID;
+            break;
+        }
     }
 } else {
     echo "<h2>Failed</h2>";
