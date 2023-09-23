@@ -1,8 +1,8 @@
 <?php
 
-include_once($_SERVER["SERVER_NAME"] . "/NDA.php");
+include "../NDA.php";
 
-$_query = "SELECT id, URL FROM 'wallpaperaccess'";
+$_query = "SELECT id, img_url FROM wallpaperaccess";
 $_res = mysqli_query($connection, $_query);
 
 if ($_res) {
