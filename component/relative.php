@@ -38,11 +38,14 @@
         for ($i = 0; $i < $num; $i++) {
             $userId = $Allres[$i][0];
             $urlDis = $Allres[$i][4];
-            $PAGEURL = $Allres[$i][7];
-            $altName = str_replace('-', ' ', substr($PAGEURL, 3));
+            $PAGEURL = explode("w/", $Allres[$i][7])[1];
+            $altName = str_replace('-', ' ', $PAGEURL);
+            $PAGEURL = "/watch?w=" . $PAGEURL;
             $ImgNameDock = explode('.', $urlDis);
             $ImgNameDock01 = $ImgNameDock[0];
             $tags = $Allres[$i][3];
+            $_img_dimension = $Allres[$i][10];
+            $_img_size = $Allres[$i][11];
 
             if (file_exists('../uploads/' . $urlDis) && file_exists('../webp-500/' . $ImgNameDock01 . '.webp')) {
                 list($width, $height) = getimagesize('../uploads/' . $urlDis);
@@ -53,7 +56,7 @@
                     $html_01 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                         <meta itemprop="fileFormat" content="image/jpeg">
                         <meta itemprop="keywords" content="' . $tags . '">
-                        <meta itemprop="description" content="' . $altName . '. ' . $tags . ' wallpaper by wallpaper access.">
+                        <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
                         <meta itemprop="contentSize" content="' . $sizeInByte . '">
                         <div class="img-info-box">                        
                             <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
@@ -77,7 +80,7 @@
                     $html_02 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                     <meta itemprop="fileFormat" content="image/jpeg">
                     <meta itemprop="keywords" content="' . $tags . '">
-                    <meta itemprop="description" content="' . $altName . '. ' . $tags . ' wallpaper by wallpaper access.">
+                    <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
                     <meta itemprop="contentSize" content="' . $sizeInByte . '">
                     <div class="img-info-box">                        
                         <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
@@ -101,7 +104,7 @@
                     $html_03 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                     <meta itemprop="fileFormat" content="image/jpeg">
                     <meta itemprop="keywords" content="' . $tags . '">
-                    <meta itemprop="description" content="' . $altName . '. ' . $tags . ' wallpaper by wallpaper access.">
+                    <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
                     <meta itemprop="contentSize" content="' . $sizeInByte . '">
                     <div class="img-info-box">                        
                         <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
