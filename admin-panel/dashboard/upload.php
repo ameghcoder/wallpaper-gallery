@@ -1,15 +1,15 @@
-
 <?php
 // Start the session
 session_start();
-if(isset($_SESSION['username'])){
+if (isset($_SESSION['username'])) {
     $usernameTeam = $_SESSION['username'];
-} else{
+} else {
     header('location: /admin-panel/');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,7 @@ if(isset($_SESSION['username'])){
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/admin-panel/component/' . 'in_head_file.html') ?>
     <title>Upload >> Wallpaper Access</title>
 </head>
+
 <body>
     <div class="container">
         <header class="top-header">
@@ -36,12 +37,12 @@ if(isset($_SESSION['username'])){
                                 <input type="file" name="wallpaper" id="wallpaper" accept="image/*" hidden>
                                 <strong id="username" hidden>
                                     <?php
-                                        session_start();
-                                        if(isset($_SESSION['username'])){
-                                            echo $_SESSION['username'];
-                                        } else{
-                                            echo "Akki6377";
-                                        }
+                                    session_start();
+                                    if (isset($_SESSION['username'])) {
+                                        echo $_SESSION['username'];
+                                    } else {
+                                        echo "Akki6377";
+                                    }
                                     ?>
                                 </strong>
                             </div>
@@ -50,7 +51,8 @@ if(isset($_SESSION['username'])){
                             </div>
                         </div>
                         <div class="uis-mid">
-                            <input type="text" name="wallpaper-name" id="wallpaper-name" placeholder="Enter Wallpaper Name">
+                            <input type="text" name="wallpaper-name" id="wallpaper-name"
+                                placeholder="Enter Wallpaper Name">
                             <select name="category" id="category">
                                 <option value="3d">3D</option>
                                 <option value="4k">4k</option>
@@ -84,10 +86,14 @@ if(isset($_SESSION['username'])){
                             </select>
                         </div>
                         <div class="uis-btm">
-                            <strong>Keywords Length : <em class="_keyword_length"></em>, Not more than 250 characters</strong>
-                            <textarea name="tags" id="tags" cols="30" rows="10" placeholder="Enter Wallpaper Tags"></textarea>
-                            <strong>Description Length : <em class="_description_length"></em>, Not more than 160 characters or Less than 100 characters</strong>
-                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Write something about wallpaper"></textarea>
+                            <strong>Keywords Length : <em class="_keyword_length"></em>, Not more than 250
+                                characters</strong>
+                            <textarea name="tags" id="tags" cols="30" rows="10"
+                                placeholder="Enter Wallpaper Tags"></textarea>
+                            <strong>Description Length : <em class="_description_length"></em>, Not more than 160
+                                characters or Less than 100 characters</strong>
+                            <textarea name="description" id="description" cols="30" rows="10"
+                                placeholder="Write something about wallpaper"></textarea>
                             <button type="button" class="uploadBtn">Upload</button>
                         </div>
                     </div>
@@ -97,4 +103,5 @@ if(isset($_SESSION['username'])){
         </div>
     </div>
 </body>
+
 </html>
