@@ -19,10 +19,6 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
         $_temp_title = explode("w/", $_row_data[7])[1];
         $_title = str_replace("-", " ", $_temp_title);
 
-        print_r($_row_data);
-        echo "<br>";
-        echo $_title;
-
         $_img_dimension = $_row_data[10];
         $_img_size = $_row_data[11];
 
@@ -252,7 +248,9 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                                             <div class="ip-icon-box">
                                                 <div class="ipib-tags">
                                                     <ul>
-                                                        {{TAG_HTML}}
+                                                        <?php if (!empty($_tag_html)) {
+                                                            echo $_tag_html;
+                                                        } ?>
                                                     </ul>
                                                 </div>
                                                 <div
@@ -367,7 +365,7 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                                 </div>
                                 <section class="img-section">
                                     <div class="img-section-inside">
-
+                                        <?php include($_SERVER['DOCUMENT_ROOT'] . '/component/relative.php'); ?>
                                     </div>
                                 </section>
                             </main>
