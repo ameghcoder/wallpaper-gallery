@@ -41,6 +41,21 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
         for ($i = 0; $i < $_tag_array; $i++) {
             $_tag_html .= '<li><a rel="tag" href="/search?wallpaper=' . $_tag_arry[$i] . '" rel="tag">' . $_tag_arry[$i] . '</a></li>';
         }
+
+        echo $_title;
+        echo "<br>";
+        echo $_tag;
+        echo "<br>";
+        echo $_img_url;
+        echo "<br>";
+        echo $_img_url_webp;
+        echo "<br>";
+        echo $_page_url;
+        echo "<br>";
+        echo $_description;
+        echo "<br>";
+        echo $_tag_html;
+        echo "<br>";
     } else {
         echo "Failed DB";
     }
