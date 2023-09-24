@@ -5,11 +5,9 @@ include "../NDA.php";
 if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     $_w_para = "/w/" . $_GET['w'];
 
-    echo $_w_para;
-
-    // $_query = "SELECT * FROM wallpaperaccess WHERE PAGE=$_w_para";
-    // $_res = mysqli_query($connection, $query);
-    $_res = false;
+    $_query = "SELECT * FROM wallpaperaccess WHERE PAGE=$_w_para";
+    $_res = mysqli_query($connection, $query);
+    // $_res = false;
     if ($_res) {
         $_row_data = mysqli_fetch_array($_res);
         $_template_data = file_get_contents("./template/Wallpaper_Preview.php");
@@ -31,14 +29,14 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
             $_tag_html .= '<li><a rel="tag" href="/search?wallpaper=' . $_tag_arry[$i] . '" rel="tag">' . $_tag_arry[$i] . '</a></li>';
         }
 
-        // $_template_data = str_replace("{{TITLE}}", $_img_title, $_template_data);
-        // $_template_data = str_replace("{{TAG}}", $_img_tag, $_template_data);
-        // $_template_data = str_replace("{{IMAGE_URL}}", $_img_url, $_template_data);
-        // $_template_data = str_replace("{{PAGE_URL}}", $_page_url, $_template_data);
-        // $_template_data = str_replace("{{DESCRIPTION}}", $_img_description, $_template_data);
-        // $_template_data = str_replace("{{TAG_HTML}}", $_tag_html, $_template_data);
-        // $_template_data = str_replace("{{DIMENSION}}", $_img_dimension, $_template_data);
-        // $_template_data = str_replace("{{IMG_ID}}", $_img_id, $_template_data);
+        $_template_data = str_replace("{{TITLE}}", $_img_title, $_template_data);
+        $_template_data = str_replace("{{TAG}}", $_img_tag, $_template_data);
+        $_template_data = str_replace("{{IMAGE_URL}}", $_img_url, $_template_data);
+        $_template_data = str_replace("{{PAGE_URL}}", $_page_url, $_template_data);
+        $_template_data = str_replace("{{DESCRIPTION}}", $_img_description, $_template_data);
+        $_template_data = str_replace("{{TAG_HTML}}", $_tag_html, $_template_data);
+        $_template_data = str_replace("{{DIMENSION}}", $_img_dimension, $_template_data);
+        $_template_data = str_replace("{{IMG_ID}}", $_img_id, $_template_data);
 
         echo $_template_data;
     } else {
