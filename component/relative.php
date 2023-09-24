@@ -24,7 +24,7 @@
     $html_01_close = '</div><div class="ir-1-bb"><div class="ir-1-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" alt="loading animation gif" /></div><div class="hidden-end-checker-01" data-id="ir-1" style="visibility:hidden;">checker</div></div></div>';
     $html_02_close = '</div><div class="ir-2-bb"><div class="ir-2-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" alt="loading animation gif" /></div><div class="hidden-end-checker-02" data-id="ir-2" style="visibility:hidden;">checker</div></div></div>';
     $html_03_close = '</div><div class="ir-3-bb"><div class="ir-3-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" alt="loading animation gif" /></div><div class="hidden-end-checker-03" data-id="ir-3" style="visibility:hidden;">checker</div></div></div>';
-    if ($last[1] == "w") {
+    if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
 
         $query = "SELECT * FROM wallpaperaccess WHERE MATCH(tag, category) AGAINST('$keywords') ORDER BY 1 DESC LIMIT 0, 15";
         $res = mysqli_query($connection, $query);
