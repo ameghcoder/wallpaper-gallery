@@ -43,9 +43,9 @@
             $_img_dimension = $Allres[$i][10];
             $_img_size = $Allres[$i][11];
 
-            if (file_exists('../uploads/' . $urlDis) && file_exists('../webp-500/' . $ImgNameDock01 . '.webp')) {
-                list($width, $height) = getimagesize('../uploads/' . $urlDis);
-                $sizeInByte = filesize('../uploads/' . $urlDis);
+            if (file_exists('./uploads/' . $urlDis) && file_exists('./webp-500/' . $ImgNameDock01 . '.webp')) {
+                list($width, $height) = getimagesize('./uploads/' . $urlDis);
+                $sizeInByte = filesize('./uploads/' . $urlDis);
                 $showImgURL = '/webp-500/' . $ImgNameDock01 . '.webp';
                 if ($i >= 0 && $i <= 4) {
                     $lastid = 5;
