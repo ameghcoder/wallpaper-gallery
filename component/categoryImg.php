@@ -24,8 +24,8 @@ if ($last[1] == "category") {
         $userId = $Allres[$i][0];
         $urlDis = $Allres[$i][4];
         $PAGEURL = explode("w/", $Allres[$i][7])[1];
+        $altName = str_replace('-', ' ', $PAGEURL);
         $PAGEURL = "/watch?w=" . $PAGEURL;
-        $altName = str_replace('-', ' ', substr($PAGEURL, 3));
         $ImgNameDock = explode('.', $urlDis);
         $ImgNameDock01 = $ImgNameDock[0];
         $tags = $Allres[$i][3];
