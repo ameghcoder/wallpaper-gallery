@@ -14,7 +14,6 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     $_res = mysqli_query($connection, $_query);
     if ($_res) {
         $_row_data = mysqli_fetch_array($_res);
-        $_template_data = file_get_contents("./template/Wallpaper_Preview.php");
 
         // Tag, Image_url, Page_url, Description, Title, Dimension, Size
         $_temp_title = explode("w/", $_row_data[7])[1];
