@@ -1,11 +1,7 @@
 <div class="img-box">
     <?php
 
-    include_once '../NDA.php';
-    // $currentPageUrl = $_SERVER["REQUEST_URI"]; 
-    // $last = explode('/', $currentPageUrl);
     $keywords = "";
-    // $keywords = strtolower($last[2]);
     $keywords = $_GET['w'];
     $keywords = str_replace(".php", "", $keywords);
     $keywords = str_replace("-", " ", $keywords);
