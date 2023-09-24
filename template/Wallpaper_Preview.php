@@ -100,7 +100,7 @@
                                 </div>
                                 <section class="img-section">
                                     <div class="img-section-inside">
-                                        <?php include($_SERVER['DOCUMENT_ROOT'] . '/component/relative.php'); ?>
+
                                     </div>
                                 </section>
                             </main>
