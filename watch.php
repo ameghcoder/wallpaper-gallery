@@ -3,7 +3,7 @@
 include "../NDA.php";
 
 if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
-    $_w_para = $_GET['w'];
+    $_w_para = "/w/" . $_GET['w'];
 
     $_query = "SELECT * FROM wallpaperaccess WHERE PAGE=$_w_para";
     $_res = mysqli_query($connection, $query);
