@@ -322,9 +322,9 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                                                         href="https://www.instagram.com/wallpaper_access1/"
                                                         rel="external"><i class="nav-logo-css instagram-icon"></i></a>
                                                 </div>
-                                                <!--<div class="ipfc-box" style="background: #151210;">-->
+                                                <!-- <div class="ipfc-box" style="background: #151210;">-->
                                                 <!--    <a href="https://aiwallpaper.online">Best Ai & Android wallpaper</a>-->
-                                                <!--</div>-->
+                                                <!--</div> -->
                                                 <div class="ipfc-box"
                                                     style="background: url('../webp-500/Tesla-2022-Model-Red-Car-Wallpaper-4k.webp');">
                                                     <a href="https://www.wallpaper-access.com/search?wallpaper=tesla">Tesla
