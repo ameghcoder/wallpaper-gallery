@@ -5,9 +5,8 @@ include "../NDA.php";
 if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     $_w_para = "/w/" . $_GET['w'];
 
-    $_query = "SELECT * FROM wallpaperaccess WHERE img_page='$_w_para'";
+    $_query = "SELECT * FROM wallpaperaccess WHERE img_page='/w/Mazda-Car-Side-View-2k-Wallpaper'";
     $_res = mysqli_query($connection, $_query);
-    // $_res = false;
     if ($_res) {
         $_row_data = mysqli_fetch_array($_res);
         $_template_data = file_get_contents("./template/Wallpaper_Preview.php");
