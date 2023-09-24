@@ -124,13 +124,15 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                                 } ?>" hidden id="img-heading" />
                                     <div class="ip-top">
                                         <div class="ipt-left">
-                                            <div class="img-box"><img class="preview-image lazyload landscape" data-src="<?php if (!empty($_img_url_webp)) {
-                                                echo $_img_url_webp;
-                                            } ?>" src="/assets/lazyloadimg.webp" alt="<?php if (!empty($_title)) {
-                                                 echo $_title;
-                                             } ?>" title="<?php if (!empty($_title)) {
-                                                  echo $_title;
-                                              } ?>"></div>
+                                            <div class="img-box"><img
+                                                    style="height: 100% !important; width: auto !important; object-fit: contain;"
+                                                    class="preview-image lazyload landscape" data-src="<?php if (!empty($_img_url_webp)) {
+                                                        echo $_img_url_webp;
+                                                    } ?>" src="/assets/lazyloadimg.webp" alt="<?php if (!empty($_title)) {
+                                                         echo $_title;
+                                                     } ?>" title="<?php if (!empty($_title)) {
+                                                          echo $_title;
+                                                      } ?>"></div>
                                             <div class="ip-icon-box">
                                                 <div class="ipib-tags">
                                                     <ul>
