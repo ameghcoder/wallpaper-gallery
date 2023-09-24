@@ -88,35 +88,7 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     <meta property="og:image:alt" content="<?php if (!empty($_title)) {
         echo $_title;
     } ?>" />
-    <!-- Image Link -->
-    <meta name="robots" content="max-image-preview:large">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#202020">
-    <meta name="apple-mobile-web-app-title" content="Wallpaper Access">
-    <meta name="application-name" content="Wallpaper Access">
-    <meta name="msapplication-TileColor" content="#202020">
-    <meta name="theme-color" content="#202020">
-    <link async rel="stylesheet" type="text/css" href="/style/style_v04.css">
-    <link async rel="stylesheet" type="text/css" href="/style/style_preview_min_v03.css">
-    <link async rel="stylesheet" type="text/css" href="/style/style_three_line_col_v04.css">
-
-    <style>
-        div:empty {
-            display: none;
-        }
-
-        .ipib-view,
-        .ipib-download {
-            display: none !important;
-        }
-
-        body {
-            overflow-x: hidden !important;
-        }
-    </style>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/component/img_link.html'); ?>
     <!-- Image Link -->
     <link rel="canonical" href="<?php if (!empty($_page_url)) {
         echo $_page_url;
@@ -133,93 +105,7 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
         <div class="page-container-inside">
             <section class="page-section-left">
 
-                <header>
-                    <div class="hamburger">
-                        <form action="/search" method="get" enctype="text/plain">
-                            <input title="Enter your wallpaper name" type="search" name="wallpaper" id="wall_search_per"
-                                placeholder="Search your wallpaper">
-                            <button type="submit" role="button" title="Search Wallpaper">
-                                <i class="image-search-icon nav-logo-css" title="Image Search Icon"></i>
-                            </button>
-                        </form>
-                        <span class="hamburger-icon"
-                            onclick="document.querySelector('.page-section-left').classList.toggle('left-0px');document.querySelector('.hamburger').classList.toggle('back-fill');document.querySelector('.side-menu-container').classList.remove('left-70px');document.querySelector('.hamburger').classList.toggle('hamburger-responsive-width')">
-                            <span class="hi-f"></span>
-                            <span class="hi-m"></span>
-                            <span class="hi-l"></span>
-                        </span>
-                    </div>
-                    <div class="page-left-side-box">
-                        <div class="plsb-inside">
-                            <nav>
-                                <a href="/" title="wallpaper-access.com"
-                                    style="margin-right: 10px !important; background: none !important; opacity: 1 !important;">
-                                    <i class="web-logo" title="website logo"></i>
-                                </a>
-                                <div class="side-menu">
-                                    <button title="category" class="side-menu-btn clear-btn-css"
-                                        onclick="document.querySelector('.side-menu-container').classList.toggle('left-70px')">
-                                        <i class="nav-logo-css category-icon" title="category icon"></i>
-                                    </button>
-                                    <div class="side-menu-container">
-                                        <div class="side-menu-container-inside">
-                                            <strong>Category</strong>
-                                            <div class="smci-grid-box">
-                                                <a itemprop="item" href="/category/ai">🤖 AI Created</a>
-                                                <a itemprop="item" href="/category/3d">↔️ 3D</a>
-                                                <a itemprop="item" href="/category/4k">↔️ 4K</a>
-                                                <a itemprop="item" href="/category/abstruct">🌀 Abstruct</a>
-                                                <a itemprop="item" href="/category/actor">👥 Actor</a>
-                                                <a itemprop="item" href="/category/actress">👥 Actress</a>
-                                                <a itemprop="item" href="/category/android">📱 Android</a>
-                                                <a itemprop="item" href="/category/art">🎨 Art</a>
-                                                <a itemprop="item" href="/category/animal">🐶 Animal</a>
-                                                <a itemprop="item" href="/category/anime">💥 Anime</a>
-                                                <a itemprop="item" href="/category/avengers">🦸 Avengers</a>
-                                                <a itemprop="item" href="/category/baby">👶 Baby</a>
-                                                <a itemprop="item" href="/category/building">🏢 Building</a>
-                                                <a itemprop="item" href="/category/bike">🛵 Bike</a>
-                                                <a itemprop="item" href="/category/bts">💜 BTS Army</a>
-                                                <a itemprop="item" href="/category/cars">🚗 Cars</a>
-                                                <a itemprop="item" href="/category/cartoon">🐻 Cartoon</a>
-                                                <a itemprop="item" href="/category/christmas">🎄 Christmas</a>
-                                                <a itemprop="item" href="/category/city">🌆 City</a>
-                                                <a itemprop="item" href="/category/computer">🖥️️ Computer</a>
-                                                <a itemprop="item" href="/category/freefire">🎮 FreeFire</a>
-                                                <a itemprop="item" href="/category/gods">🔱 Gods</a>
-                                                <a itemprop="item" href="/category/galaxy">🌌 Galaxy</a>
-                                                <a itemprop="item" href="/category/gym">🏋️ Gym</a>
-                                                <a itemprop="item" href="/category/gun">🔫 Gun</a>
-                                                <a itemprop="item" href="/category/gaming">🎮 Gaming</a>
-                                                <a itemprop="item" href="/category/house">🏠 House</a>
-                                                <a itemprop="item" href="/category/mountain">⛰️ Mountain</a>
-                                                <a itemprop="item" href="/category/nature">🌳 Nature</a>
-                                                <a itemprop="item" href="/search?wallpaper=year">New Year</a>
-                                                <a itemprop="item" href="/category/planet">🌹 Planet</a>
-                                                <a itemprop="item" href="/search?wallpaper=texture">Texture</a>
-                                                <a itemprop="item" href="/search?wallpaper=villain">🦹 Villain</a>
-                                                <a itemprop="item" href="/category/webseries">🎥 Web Series</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a title="Contact" href="/contact"><i class="nav-logo-css contact-icon"
-                                        title="contact icon"></i></a>
-                                <a title="About" href="/about"><i class="nav-logo-css about-icon"
-                                        title="about icon"></i></a>
-                                <a title="Help" href="/personaluseonly"><i class="nav-logo-css help-icon"
-                                        title="help icon"></i></a>
-                                <button class="toggle-btn" style="border: none" title="Change Theme Color"
-                                    type="button"></button>
-                                <strong style="writing-mode: vertical-rl;transform: rotate(180deg); cursor: pointer;"
-                                    class="toggle-btn-text">Dark</strong>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
-                <script>
-                    let toggleBtn = document.querySelector("button.toggle-btn"), navLogoCss = document.querySelectorAll(".nav-logo-css"), toggleBtnText = document.querySelector(".toggle-btn-text"), theme_ = !0; function toggleMode() { document.querySelector("body").classList.toggle("light"), toggleBtn.classList.toggle("toggle-btn-light"); for (let t = 0; t < navLogoCss.length; t++)navLogoCss[t].classList.toggle("nav-logo-css-light"); theme_ = theme_ ? (localStorage.setItem("theme", "light"), !(document.querySelector(".toggle-btn-text").innerHTML = "Light")) : (localStorage.setItem("theme", "dark"), document.querySelector(".toggle-btn-text").innerHTML = "Dark", !0) } function checkLS() { if ("light" == localStorage.getItem("theme")) { document.querySelector("body").classList.add("light"), toggleBtn.classList.add("toggle-btn-light"); for (let t = 0; t < navLogoCss.length; t++)navLogoCss[t].classList.add("nav-logo-css-light"); document.querySelector(".toggle-btn-text").innerHTML = "Light", theme_ = !1 } else { document.querySelector("body").classList.remove("light"), toggleBtn.classList.remove("toggle-btn-light"); for (let t = 0; t < navLogoCss.length; t++)navLogoCss[t].classList.remove("nav-logo-css-light"); document.querySelector(".toggle-btn-text").innerHTML = "Dark" } } checkLS(), toggleBtn.addEventListener("click", toggleMode), toggleBtnText.addEventListener("click", toggleMode);
-                </script>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/component/header.html'); ?>
             </section>
             <section class="page-section-right">
                 <div class="page-section-right-inside">
@@ -327,12 +213,12 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                                                 <!--</div> -->
                                                 <div class="ipfc-box"
                                                     style="background: url('../webp-500/Tesla-2022-Model-Red-Car-Wallpaper-4k.webp');">
-                                                    <a href="https://www.wallpaper-access.com/search?wallpaper=tesla">Tesla
+                                                    <a href="https://gallery.coastweb.online/search?wallpaper=tesla">Tesla
                                                         Wallpapers</a>
                                                 </div>
                                                 <div class="ipfc-box"
                                                     style="background: url('/webp-500/Kim-taehyung-best-android-wallpaper.webp');">
-                                                    <a href="https://www.wallpaper-access.com/search?wallpaper=android">Android
+                                                    <a href="https://gallery.coastweb.online/search?wallpaper=android">Android
                                                         Wallpapers</a>
                                                 </div>
                                             </div>
@@ -372,52 +258,7 @@ if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
                         </div>
                         <div class="psric-btm">
 
-                            <footer>
-                                <div class="footer-inside">
-                                    <div class="footer-top-section">
-                                        <strong>Download 10,000+ wallpaper with Love ❤️</strong>
-                                    </div>
-                                    <div class="footer-mid-section">
-                                        <div class="links-box">
-                                            <div class="lb-links">
-                                                <a title="Terms of use" href="/termsandconditions">Terms of use</a>
-                                                <a title="Privacy Policy" href="/privacypolicy">Privacy Policy</a>
-                                                <a title="Disclaimer" href="/disclaimer">Disclaimer</a>
-                                                <a title="Report a Link" href="/contact">Report a Link</a>
-                                                <a title="FAQs" href="/personaluseonly">FAQs</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="footer-btm-section">
-                                        Copyright : 2022 - <span class="current-year"></span> All Rights Reserved.
-                                    </div>
-                                </div>
-                            </footer>
-                            <div class="bottom-to-top" onclick="window.scrollTo(0, 0)" role="button">
-                                <i class="nav-logo-css chevron-up"></i>
-                            </div>
-                            <!-- model image container -->
-                            <style>
-                                .model-img::-webkit-scrollbar {
-                                    display: none;
-                                }
-
-                                .model-img {
-                                    -ms-overflow-style: none;
-                                    scrollbar-width: none;
-                                }
-                            </style>
-                            <div class="model-img" style="display: none;">
-                                <img class="model-img-url" style="width : unset;" alt="Preview Image">
-                                <div class="close-model">&#10005; close</div>
-                            </div>
-                            <!-- date and spinner background -->
-
-                            <script>
-                                document.addEventListener("DOMContentLoaded", () => { let e = document.querySelector(".ipt-left > div.img-box") ? document.querySelector(".ipt-left > div.img-box") : 0; function t() { let t = e.firstChild; t.classList.contains("landscape") || 500 <= window.innerWidth ? (e.style.width = e.clientWidth + "px", e.style.height = .5625 * e.clientWidth + "px") : (e.style.width = e.clientWidth + "px", e.style.height = 1.77 * e.clientWidth + "px") } 0 != e && t(), window.onresize = () => { 0 != e && t() } });
-                                let date = new Date(); document.querySelector('.current-year').innerText = date.getFullYear();
-                            </script>
-                            <script async type="text/javascript" src="/script/production_v07_class.js"></script>
+                            <?php include($_SERVER['DOCUMENT_ROOT'] . '/component/footer.html'); ?>
 
                         </div>
                     </div>
