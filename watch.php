@@ -5,7 +5,7 @@ include "../NDA.php";
 if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     $_w_para = "/w/" . $_GET['w'];
 
-    $_query = "SELECT * FROM wallpaperaccess WHERE PAGE='$_w_para'";
+    $_query = "SELECT * FROM wallpaperaccess WHERE img_page='$_w_para'";
     $_res = mysqli_query($connection, $_query);
     // $_res = false;
     if ($_res) {
