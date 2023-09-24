@@ -1,6 +1,6 @@
 <?php
 
-include "../NDA.php";
+include "./NDA.php";
 
 if (isset($_GET['w']) && $_GET['w'] != "" && $_GET['w'] != null) {
     $_w_para = "/w/" . $_GET['w'];
