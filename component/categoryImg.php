@@ -1,16 +1,16 @@
-<?php 
+<?php
 
 include_once '../NDA.php';
-$currentPageUrl = $_SERVER["REQUEST_URI"]; 
+$currentPageUrl = $_SERVER["REQUEST_URI"];
 $last = explode('/', $currentPageUrl);
 $category = $last[2];
 
-if($last[1] == "category"){
+if ($last[1] == "category") {
     $query = "SELECT * FROM wallpaperaccess where category='$category' ORDER BY 1 DESC LIMIT 0, 15";
     $res = mysqli_query($connection, $query);
     $Allres = mysqli_fetch_all($res);
     $num = mysqli_num_rows($res);
-    if($num == 0){
+    if ($num == 0) {
         echo "Sorry, We have no Wallpapers to show in this category.";
     }
     $html_01 = '<div class="img-row-i1"><ul class="ir-1-tb">';
@@ -18,91 +18,94 @@ if($last[1] == "category"){
     $html_03 = '<div class="img-row-i3"><ul class="ir-3-tb">';
     $html_01_close = '</ul><div class="ir-1-bb"><div class="ir-1-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" /></div><div class="hidden-end-checker-01" data-id="ir-1" style="visibility:hidden;">checker</div></div></div>';
     $html_02_close = '</ul><div class="ir-2-bb"><div class="ir-2-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" /></div><div class="hidden-end-checker-02" data-id="ir-2" style="visibility:hidden;">checker</div></div></div>';
-    $html_03_close = '</ul><div class="ir-3-bb"><div class="ir-3-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" /></div><div class="hidden-end-checker-03" data-id="ir-3" style="visibility:hidden;">checker</div></div></div>'; 
+    $html_03_close = '</ul><div class="ir-3-bb"><div class="ir-3-tb-loader" style="text-align : center; margin : auto;"><img width="50px" src="/assets/loader.gif" /></div><div class="hidden-end-checker-03" data-id="ir-3" style="visibility:hidden;">checker</div></div></div>';
     clearstatcache();
-    for($i = 0; $i < $num; $i++){
-        $userId = $Allres[$i][0];      
+    for ($i = 0; $i < $num; $i++) {
+        $userId = $Allres[$i][0];
         $urlDis = $Allres[$i][4];
-        $PAGEURL = $Allres[$i][7];
-        $altName = str_replace( '-', ' ' , substr($PAGEURL, 3));
+        $PAGEURL = explode("w/", $Allres[$i][7])[1];
+        $PAGEURL = "/watch?w=" . $PAGEURL;
+        $altName = str_replace('-', ' ', substr($PAGEURL, 3));
         $ImgNameDock = explode('.', $urlDis);
         $ImgNameDock01 = $ImgNameDock[0];
         $tags = $Allres[$i][3];
+        $_img_dimension = $Allres[$i][10];
+        $_img_size = $Allres[$i][11];
 
-        if(file_exists('../uploads/' . $urlDis) && file_exists('../webp-500/'.$ImgNameDock01.'.webp')){
+        if (file_exists('../uploads/' . $urlDis) && file_exists('../webp-500/' . $ImgNameDock01 . '.webp')) {
             list($width, $height) = getimagesize('../uploads/' . $urlDis);
             $sizeInByte = filesize('../uploads/' . $urlDis);
-            $showImgURL = '/webp-500/'.$ImgNameDock01.'.webp';
-            if($i >= 0 && $i <= 4){
+            $showImgURL = '/webp-500/' . $ImgNameDock01 . '.webp';
+            if ($i >= 0 && $i <= 4) {
                 $lastid = 5;
                 $html_01 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                     <meta itemprop="fileFormat" content="image/jpeg">
-                    <meta itemprop="keywords" content="'.$tags.'">
-                    <meta itemprop="description" content="'.$altName.'. '.$tags.' wallpaper by wallpaper access.">
-                    <meta itemprop="contentSize" content="'.$sizeInByte.'">
+                    <meta itemprop="keywords" content="' . $tags . '">
+                    <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
+                    <meta itemprop="contentSize" content="' . $sizeInByte . '">
                     <div class="img-info-box">                        
                         <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                            <span itemprop="value">'.$width.'</span>
+                            <span itemprop="value">' . $width . '</span>
                             <meta itemprop="unitText" content="px">
                         </span>x
                         <span itemprop="height" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                            <span itemprop="value">'.$height.'</span>
+                            <span itemprop="value">' . $height . '</span>
                             <meta itemprop="unitText" content="px">
                         </span>
                     </div>
                     <figure>
-                        <a itemprop="url" class="img-anchor" data-id='.$lastid.' href="'.$PAGEURL.'">
-                            <img class="small-img lazyload" itemprop="contentUrl" alt="'.$altName.'" title="'.$altName.'" src="/assets/lazyload.webp" data-src="'.$showImgURL.'" data-id="'.$userId.'">
+                        <a itemprop="url" class="img-anchor" data-id=' . $lastid . ' href="' . $PAGEURL . '">
+                            <img class="small-img lazyload" itemprop="contentUrl" alt="' . $altName . '" title="' . $altName . '" src="/assets/lazyload.webp" data-src="' . $showImgURL . '" data-id="' . $userId . '">
                         </a>
-                        <figcaption itemprop="caption">'.$altName.'</figcaption>
+                        <figcaption itemprop="caption">' . $altName . '</figcaption>
                     </figure>
                 </li>';
-            } else if($i >= 5 && $i <= 9){
+            } else if ($i >= 5 && $i <= 9) {
                 $lastid = 10;
                 $html_02 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                 <meta itemprop="fileFormat" content="image/jpeg">
-                <meta itemprop="keywords" content="'.$tags.'">
-                <meta itemprop="description" content="'.$altName.'. '.$tags.' wallpaper by wallpaper access.">
-                <meta itemprop="contentSize" content="'.$sizeInByte.'">
+                <meta itemprop="keywords" content="' . $tags . '">
+                <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
+                <meta itemprop="contentSize" content="' . $sizeInByte . '">
                 <div class="img-info-box">                        
                     <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                        <span itemprop="value">'.$width.'</span>
+                        <span itemprop="value">' . $width . '</span>
                         <meta itemprop="unitText" content="px">
                     </span>x
                     <span itemprop="height" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                        <span itemprop="value">'.$height.'</span>
+                        <span itemprop="value">' . $height . '</span>
                         <meta itemprop="unitText" content="px">
                     </span>
                 </div>
                 <figure>
-                    <a itemprop="url" class="img-anchor" data-id='.$lastid.' href="'.$PAGEURL.'">
-                        <img class="small-img lazyload" itemprop="contentUrl" alt="'.$altName.'" title="'.$altName.'" src="/assets/lazyload.webp" data-src="'.$showImgURL.'" data-id="'.$userId.'">
+                    <a itemprop="url" class="img-anchor" data-id=' . $lastid . ' href="' . $PAGEURL . '">
+                        <img class="small-img lazyload" itemprop="contentUrl" alt="' . $altName . '" title="' . $altName . '" src="/assets/lazyload.webp" data-src="' . $showImgURL . '" data-id="' . $userId . '">
                     </a>
-                    <figcaption itemprop="caption">'.$altName.'</figcaption>
+                    <figcaption itemprop="caption">' . $altName . '</figcaption>
                 </figure>
-            </li>';  
-            } else if($i >= 10 && $i <= 14){
+            </li>';
+            } else if ($i >= 10 && $i <= 14) {
                 $lastid = 15;
                 $html_03 .= '<li itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                 <meta itemprop="fileFormat" content="image/jpeg">
-                <meta itemprop="keywords" content="'.$tags.'">
-                <meta itemprop="description" content="'.$altName.'. '.$tags.' wallpaper by wallpaper access.">
-                <meta itemprop="contentSize" content="'.$sizeInByte.'">
+                <meta itemprop="keywords" content="' . $tags . '">
+                <meta itemprop="description" content="' . $altName . ". Original wallpaper Dimension is " . $_img_dimension . "px, file size is " . $_img_size . '.">
+                <meta itemprop="contentSize" content="' . $sizeInByte . '">
                 <div class="img-info-box">                        
                     <span itemprop="width" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                        <span itemprop="value">'.$width.'</span>
+                        <span itemprop="value">' . $width . '</span>
                         <meta itemprop="unitText" content="px">
                     </span>x
                     <span itemprop="height" itemscope="" itemtype="http://schema.org/QuantitativeValue">
-                        <span itemprop="value">'.$height.'</span>
+                        <span itemprop="value">' . $height . '</span>
                         <meta itemprop="unitText" content="px">
                     </span>
                 </div>
                 <figure>
-                    <a itemprop="url" class="img-anchor" data-id='.$lastid.' href="'.$PAGEURL.'">
-                        <img class="small-img lazyload" itemprop="contentUrl" alt="'.$altName.'" title="'.$altName.'" src="/assets/lazyload.webp" data-src="'.$showImgURL.'" data-id="'.$userId.'">
+                    <a itemprop="url" class="img-anchor" data-id=' . $lastid . ' href="' . $PAGEURL . '">
+                        <img class="small-img lazyload" itemprop="contentUrl" alt="' . $altName . '" title="' . $altName . '" src="/assets/lazyload.webp" data-src="' . $showImgURL . '" data-id="' . $userId . '">
                     </a>
-                    <figcaption itemprop="caption">'.$altName.'</figcaption>
+                    <figcaption itemprop="caption">' . $altName . '</figcaption>
                 </figure>
             </li>';
             }
