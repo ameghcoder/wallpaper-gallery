@@ -32,7 +32,8 @@
                                 </section>
                                 <section class="text-container">
                                     <button type="button"
-                                        onclick="window.href.location = 'https://gallery.coastweb.online/RESUME.pdf'">My
+                                        onclick="window.href.location = 'https://gallery.coastweb.online/RESUME.pdf'"
+                                        style="color: black;padding: 10px 15px;background-color: #00ff00;outline: none;border: none;font-size: 1.5rem;text-align: justify;font-family: monospace;">My
                                         Resume Link (Want to create your Website)</button>
                                     <h2>Developer & Designer</h2>
                                     <p>Hi, My name is Ankit Yadav, I am Official Developer and Designer of this website.
