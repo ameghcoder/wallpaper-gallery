@@ -117,7 +117,7 @@
                     <div class="psri-content">
                         <div class="psric-top">
                             <div class="heading-and-search-box">
-                                <h1>Wallpaper Gallery || Thousands for Wallpapers</h1>
+                                <h1>Wallpaper Gallery || Cool Wallpapers</h1>
                                 <div>
                                     <a style="margin:0px 5px;" href="https://www.facebook.com/wallpaperaccess"
                                         rel="external"><i class="nav-logo-css facebook-icon"></i></a>
